@@ -1,17 +1,11 @@
 from app.agents.state import AgentState
 from app.agents.schema import PlannerDecision
-from app.config import settings
-from langchain_groq import ChatGroq
 import logfire
-from dotenv import load_dotenv
-load_dotenv()
+from app.gateway import get_langchain_llm
 
 
-llm = ChatGroq(
-    model=settings.GROQ_MODEL,
-    temperature=0.1,
-    api_key=settings.GROQ_API_KEY
-)
+
+llm = get_langchain_llm(feature="planner")
 
 
 structured_llm = llm.with_structured_output(PlannerDecision)

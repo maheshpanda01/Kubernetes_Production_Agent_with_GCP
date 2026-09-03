@@ -20,8 +20,15 @@ class Settings:
 
     # --- LLM (Groq) ---
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+    GROQ_FALLBACK_API_KEY = os.getenv("GROQ_FALLBACK_API_KEY")
     GROQ_MODEL = "openai/gpt-oss-120b"
     GUARD_GROQ_MODEL="qwen/qwen3.6-27b"
+    
+    # --- LLM Gateway ---
+    PORTKEY_API_KEY = os.getenv("PORTKEY_API_KEY")
+    GROQ_SLUG=os.getenv("GROQ_SLUG","prag")
+    GROQ_SLUG_2=os.getenv("GROQ_SLUG_2","brag")
+    PORTKEY_CONFIG=os.getenv("PORTKEY_CONFIG_ID")
 
 
     # --- Observability ---
